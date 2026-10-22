@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Comparison</title>
+    <link rel="stylesheet" href="try.css">
+</head>
+<body>
+    <div class="container">
+    
+        <h1>Compare Products</h1>
+
+        <!-- Product Selection -->
+        <div class="select-products">
+            <label for="product1">Select Product 1:</label>
+            <select id="product1">
+                
+            </select>
+            <label for="product2">Select Product 2:</label>
+            <select id="product2">
+    
+            </select>
+            <button onclick="compareProducts()">Compare</button>
+        </div>
+
+        <!-- Comparison Table -->
+        <div id="comparison-result" class="comparison-table"></div>
+ 
+
+    <script>
+        
+        const products = [
+            { id: 1, name: 'Tea Cups', price: '$10', feature1: 'Red-color', feature2:'A vibrant red cup with a smooth, glossy finish and a sturdy handle for a comfortable grip.', rating: '4.5/5', img: 'assets/mug 1.jpg' },
+            { id: 2, name: 'Christmas Cups', price: '$12', feature1: 'Available in Different colors', feature2: 'A festive Christmas cup adorned with cheerful holiday designs, perfect for warm seasonal beverages.', rating: '4.0/5', img: 'assets/mug4.jpg' },
+            { id: 3, name: 'Coffe Cups', price: '$15', feature1: 'Available in Different colors', feature2: 'A sleek coffee cup designed to keep your brew hot and flavorful, perfect for daily use.', rating: '4.8/5', img: 'assets/mug7.jpg' },
+            { id: 4, name: 'Plain Cups', price: '$20', feature1: 'Available in Different colors', feature2: 'A simple, elegant plain cup, perfect for any beverage and everyday use.', rating: '4.9/5', img: 'assets/pcup2.jpg' },
+            { id: 5, name: 'Printed Cups', price: '$18', feature1: 'Available in Different colors', feature2: 'Stylish printed cups with unique designs, adding personality to your beverages.', rating: '4.6/5', img: 'assets/mugs.jpg' },
+            { id: 6, name: 'Textured Cups', price: '$13', feature1: 'Available in Different Styles', feature2: 'Elegant textured cups offering a sophisticated grip and a modern aesthetic.', rating: '4.7/5', img: 'assets/tcup2.jpg' },
+            { id: 7, name: 'Gift Cards', price: '$9', feature1: 'Available in Different Styles', feature2: 'The perfect way to let your loved ones choose what they truly desire, adding a touch of thoughtfulness to every occasion.', rating: '4.3/5', img: 'assets/card1.jpg' },
+            { id: 8, name: 'Wish Cards', price: '$4', feature1: 'Available in Different Styles', feature2: 'Beautifully crafted messages to express heartfelt sentiments, making every occasion memorable and special.', rating: '4.5/5', img: 'assets/wcards1.jpg' },
+            { id: 9, name: 'Mothers Day Cards', price: '$6', feature1: 'Available in Different Styles', feature2: 'Express your love and gratitude with our beautifully designed Mothers Day cards, crafted to celebrate the amazing woman who means the world to you', rating: '4.8/5', img: 'assets/mcard2.jpg'},
+            { id: 10, name: 'Designer Cards', price: '7$', feature1: 'Available in Different Styles', feature2: '"Elevate your special moments with our designer cards, each featuring exquisite artwork and thoughtful details that make every occasion truly memorable."', rating: '4.7/5', img: 'assets/dcrad2.jpg' },
+            { id: 11, name: 'Wedding Cards', price: '$140', feature1: 'Available in Different Styles', feature2: '"Elevate your special moments with our designer cards, each featuring exquisite artwork and thoughtful details that make every occasion truly memorable."', rating: '4.6/5', img: 'assets/wedcard1.jpg' },
+            { id: 12, name: 'Christmas Cards', price: '$130', feature1: 'Available in Different Styles', feature2: '"Celebrate the joy of the season with our Christmas cards, featuring festive designs and heartfelt messages to spread holiday cheer to your loved ones."', rating: '4.4/5', img: 'assets/ccard1.jpg' },
+            { id: 13, name: 'Crimson Velvet Bloom', price: '$150', feature1: 'Available in Different Styles', feature2: '"Symbolizing love and passion, our vibrant red flowers are perfect for making a bold and heartfelt statement, whether for romantic gestures or special celebrations."', rating: '4.7/5', img: 'assets/redroses.jpg' },
+            { id: 14, name: 'Pure Snow Roses', price: '$2', feature1: 'Available in Different Styles', feature2: '"Graceful and elegant, our pure white roses symbolize purity, innocence, and new beginnings, making them a timeless choice for weddings, sympathy gestures, or heartfelt expressions of admiration."', rating: '4.9/5', img: 'assets/whiterose1.jpg' },
+            { id: 16, name: 'Bouqets', price: '$220', feature1: 'Available in Different Styles', feature2: '"Our stunning bouquets are thoughtfully arranged with fresh, vibrant flowers, perfect for celebrating lifes special moments or expressing heartfelt emotions with timeless elegance."', rating: '4.8/5', img: 'assets/prose1.jpg' },
+            { id: 17, name: 'Car Hanging Toys', price: '$2', feature1: 'Available in Different Styles', feature2: '"Add charm and personality to your ride with our adorable car hanging toys, crafted with unique designs and premium materials to bring joy to every journey."', rating: '5.0/5', img: 'assets/cardec3.jpeg' },
+            { id: 18, name: 'Soft Toys', price: '$18', feature1: 'Available in Different Styles', feature2: '"Our soft toys are crafted with love and care, featuring ultra-soft fabrics and charming designs that make them perfect cuddle companions for all ages."', rating: '4.7/5', img: 'assets/toy6.jpg' },
+            { id: 19, name: 'Number Blocks', price: '$8', feature1: 'Available in Different Styles', feature2: '"Our colorful number blocks are the perfect blend of fun and learning, helping children develop counting, problem-solving, and motor skills through interactive play."', rating: '4.6/5', img: 'assets/toy7.jpg' },
+            { id: 20, name: 'Marbles', price: '$5', feature1: 'Available in Different Styles', feature2: '"Our vibrant marbles are crafted with high-quality glass, featuring stunning patterns and colors, perfect for classic games, collectible displays, or creative decor."', rating: '4.5/5', img: 'assets/toy11.jpg' },
+            { id: 21, name: 'Car Toys', price: '$220', feature1: 'Available in Different Styles', feature2: '"Our car toys are designed for endless fun, with realistic details and durable construction, making them perfect for both imaginative play and collectors of all ages."', rating: '4.9/5', img: 'assets/toy14.jpg' },
+            { id: 22, name: 'Wodden Animals', price: '$130', feature1: 'Available in Different Styles', feature2: '"Our wooden animals are beautifully handcrafted with care and precision, featuring smooth finishes and vibrant, non-toxic paints, making them perfect for play, decoration, or as thoughtful gifts for nature lovers."', rating: '4.4/5', img: 'assets/toy19.jpg' },
+            { id: 23, name: 'Wall Decorations', price: '$180', feature1: 'Available in Different Styles', feature2: '"Our wall decorations are the perfect way to transform any space, offering a wide range of styles from modern art prints to classic designs, all crafted to add personality and style to your home or office."', rating: '4.6/5', img: 'assets/wdecoraion1.jpeg' },
+            { id: 24, name: 'Flower Pots', price: '$210', feature1: 'Available in Different Styles', feature2: '"Our flower pots are designed to beautifully complement your plants, offering a variety of styles, from modern minimalist to rustic charm, all crafted with durable materials to enhance your greenery and elevate your space."', rating: '4.8/5', img: 'assets/fpot1.jpg' },
+            { id: 25, name: 'Vase', price: '$190', feature1: 'Available in Different Styles', feature2: '"Our flower pots are designed to beautifully complement your plants, offering a variety of styles, from modern minimalist to rustic charm, all crafted with durable materials to enhance your greenery and elevate your space."', rating: '4.4/5', img: 'assets/vase1.jpeg' },
+            { id: 26, name: 'Desk Decortions', price: '$20', feature1: 'Available in Different Styles', feature2: '"Our desk decorations add a personal touch to your workspace, combining functionality with style to create an inspiring environment. From sleek organizers to unique figurines, each piece is crafted to brighten up your desk and enhance productivity."', rating: '4.7/5', img: 'assets/deskdec1.jpeg' },
+            { id: 27, name: 'Car Decorations', price: '$250', feature1: 'Available in Different Styles', feature2: '"Enhance the personality of your car with our unique car decorations, featuring stylish and fun accessories that add a touch of flair to your ride while creating a more enjoyable driving experience."', rating: '5.0/5', img: 'assets/cardec1.jpeg' },
+            { id: 28, name: 'Cristmas Decorations', price: '$17', feature1: 'Available in Different Styles', feature2: '"Transform your home into a winter wonderland with our exquisite Christmas decorations, featuring a variety of festive ornaments, lights, and seasonal accents that bring warmth and holiday cheer to every corner of your space."', rating: '4.7/5', img: 'assets/cdec2.jpg' },
+            { id: 29, name: 'Apple Watch S6', price: '$160', feature1: 'Always-On Retina Display: The Apple Watch Series 6 features an always-on Retina display that is 2.5 times brighter than its predecessor, making it easier to view your watch face and notifications, even in direct sunlight.', feature2: 'Blood Oxygen Monitoring: The Apple Watch Series 6 includes a built-in sensor that measures your blood oxygen levels, providing valuable insights into your overall health and well-being.', rating: '4.6/5', img: 'assets/watch 4.jpg' },
+            { id: 30, name: 'Apple Watch S7', price: '$190', feature1: 'Always-On Retina Display: The Apple Watch Series 7 features a larger and more durable always-on Retina display, offering almost 20% more screen area than the Series 6, making it easier to interact with apps and notifications.', feature2: 'Faster Charging: The Series 7 supports faster charging, providing up to 80% charge in just 45 minutes, ensuring you spend less time plugged in and more time using your watch.', rating: '4.9/5', img: 'assets/swatch4.jpg' },
+            { id: 31, name: 'Applw Watch S8', price: '$230', feature1: 'Enhanced Health Monitoring: The Apple Watch Series 8 introduces a new temperature sensor, which helps track your body temperature changes, providing valuable insights for cycle tracking and overall health.', feature2: 'Crash Detection: The Series 8 features advanced crash detection, using a combination of sensors, including the accelerometer and gyroscope, to detect severe car accidents and automatically alert emergency services if necessary.', rating: '5.0/5', img: 'assets/swatch1.jpg' },
+            { id: 32, name: 'Golden rolex', price: '$210', feature1: 'Oyster Perpetual Movement: The golden Rolex is powered by the iconic Oyster Perpetual movement, providing exceptional precision and reliability, ensuring accurate timekeeping for years to come.', feature2: 'Scratch-Resistant Sapphire Crystal: The watch is equipped with a scratch-resistant sapphire crystal, providing durability and clarity while protecting the dial from everyday wear and tear.', rating: '4.8/5', img: 'assets/grolex1.jpg' },
+            { id: 33, name: 'Blue-Dail Rolex', price: '$240', feature1: 'Distinctive Blue Dial: The blue dial is crafted with high-quality materials, offering a rich, luminous tone that changes subtly under different lighting conditions, adding depth and character to the watch.', feature2: 'Cerachrom Bezel: Many blue dial Rolex models feature the Cerachrom bezel, which is made of a highly durable ceramic material that is resistant to scratches, fading, and corrosion, ensuring the watch retains its pristine appearance over time.', rating: '4.9/5', img: 'assets/rolex6.jpg' },
+            { id: 34, name: 'Rolex', price: '$270', feature1: 'Superior craftsmanship and durability: Rolex watches are renowned for their exceptional quality and longevity. They are meticulously crafted using the finest materials and advanced manufacturing techniques, ensuring that they can withstand the test of time and remain functional for generations.', feature2: 'Iconic design and prestige: Rolex watches are instantly recognizable for their classic and elegant designs, which have become synonymous with luxury and sophistication. Owning a Rolex is a status symbol, signifying wealth, success, and impeccable taste.', rating: '5.0/5', img: 'assets/rolex8.jpg' },
+           
+        ];
+
+        // Function to populate product dropdown
+        function populateProductDropdown() {
+            const product1Select = document.getElementById('product1');
+            const product2Select = document.getElementById('product2');
+
+            products.forEach(product => {
+                const option1 = document.createElement('option');
+                option1.value = product.id;
+                option1.textContent = product.name;
+                product1Select.appendChild(option1);
+
+                const option2 = document.createElement('option');
+                option2.value = product.id;
+                option2.textContent = product.name;
+                product2Select.appendChild(option2);
+            });
+        }
+
+        // Function to compare products
+        function compareProducts() {
+            const product1Id = document.getElementById('product1').value;
+            const product2Id = document.getElementById('product2').value;
+
+            const product1 = products.find(product => product.id == product1Id);
+            const product2 = products.find(product => product.id == product2Id);
+
+            const comparisonTable = document.getElementById('comparison-result');
+
+            comparisonTable.innerHTML = `
+                <div class="product">
+                    <img src="${product1.img}" alt="${product1.name}">
+                    <h3>${product1.name}</h3>
+                    <ul>
+                        <li>Price: ${product1.price}</li>
+                        <li>Feature 1: ${product1.feature1}</li>
+                        <li>Feature 2: ${product1.feature2}</li>
+                        <li>Rating: ${product1.rating}</li>
+                    </ul>
+                </div>
+                <div class="vs">VS</div>
+                <div class="product">
+                    <img src="${product2.img}" alt="${product2.name}">
+                    <h3>${product2.name}</h3>
+                    <ul>
+                        <li>Price: ${product2.price}</li>
+                        <li>Feature 1: ${product2.feature1}</li>
+                        <li>Feature 2: ${product2.feature2}</li>
+                        <li>Rating: ${product2.rating}</li>
+                    </ul>
+                </div>
+            `;
+        }
+
+        // Initializing product dropdowns
+        window.onload = populateProductDropdown;
+    </script>
+</body>
+</html>

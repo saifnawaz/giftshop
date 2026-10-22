@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Page</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <!-- Left Section for Logo -->
+            <div class="logo">
+                <img src="assets/logo2.png">
+            </div>
+            <a class="navbar-brand" href="index.html">GiftShop</a>
+
+            <!-- Toggler Button for Mobile -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Navbar Links -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="product.html" target="_blank">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="compare.html" target="_blank">Compare</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Checkout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container product-page">
+        <div class="row">
+            <!-- Carousel Section -->
+            <div class="col-md-6">
+                <div id="productCarousel" class="carousel slide product-carousel" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="assets/wcup1.jpg" class="d-block w-100" alt="Product Image 1">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="assets/wcup2.jpg" class="d-block w-100" alt="Product Image 2">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="assets/wcup3.jpg" class="d-block w-100" alt="Product Image 3">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#productCarousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#productCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Product Info Section -->
+            <div class="col-md-6">
+                <div class="product-info">
+                    <h2>Printed Mugs</h2>
+                    <p class="text-muted">"Our printed mugs feature vibrant, high-quality designs that bring personality to every sip. "</p>
+                    <h4>$14.99</h4>
+                    <div class="mb-3">
+                        <label for="quantity" class="form-label">Quantity:</label>
+                        <input type="number" id="quantity" class="form-control" value="1" min="1">
+                    </div>
+                    <button id="addToCart" class="btn btn-primary w-100 mb-2">Add to Cart</button>
+                    <a href="compare.html"><button id="compare" class="btn btn-outline-secondary w-100">Compare</button></a>
+              </div>
+            </div>
+        </div>
+
+        <!-- Description Section -->
+        <div class="description">
+            <h3>Detailed Description</h3>
+            <p id="descriptionText">"Our printed mugs are designed to add a touch of personality and charm to your everyday moments. Each mug showcases vibrant, high-resolution prints crafted with precision to ensure the designs remain bold and beautiful, even with regular use. Made from premium, durable ceramic, these mugs are not only visually appealing but also built to last, resisting chips and cracks over time. With a comfortable handle and an ideal size, they are perfect for sipping your morning coffee, evening tea, or any favorite beverage. Whether you're treating
+             yourself or searching for a thoughtful gift for a loved one, our printed mugs are versatile and stylish, making them a delightful addition to any home or office."</p>
+            <a href=""></a><button id="readMoreButton" class="btn btn-link read-more">For More Info</button>
+        </div>
+
+        <!-- Related Products Section -->
+        <div class="related-products mt-5">
+            <h3>Related Products</h3>
+            <div class="row">
+                <!-- Product Card 1 -->
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="assets/mug 1.jpg" class="card-img-top" alt="Related Product 1">
+                        <div class="card-body">
+                            <h5 class="card-title">Tea cups</h5>
+                            <p class="card-text">$19.99</p>
+                            <a href="tea cups.html" class="btn btn-primary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product Card 2 -->
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="assets/tcup2.jpg" class="card-img-top" alt="Related Product 2">
+                        <div class="card-body">
+                            <h5 class="card-title">Textured cups</h5>
+                            <p class="card-text">$24.99</p>
+                            <a href="textured cup.html" class="btn btn-primary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product Card 3 -->
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="assets/pcup1.jpg" class="card-img-top" alt="Related Product 3">
+                        <div class="card-body">
+                            <h5 class="card-title">Plain cups</h5>
+                            <p class="card-text">$29.99</p>
+                            <a href="plain cup.html" class="btn btn-primary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+<footer class="custom-footer">
+    <div class="footer-top">
+        <div class="container">
+            <div class="row justify-content-between">
+                <!-- Navigation Links -->
+                <div class="col-md-3">
+                    <h3 class="footer-heading">Navigate</h3>
+                    <ul>
+                        <li><a href="index.html"><i class="icon ion-home"></i> Home</a></li>
+                        <li><a href="product.html"><i class="icon ion-cube"></i> Products</a></li>
+                        <li><a href="about.html"><i class="icon ion-information-circle"></i> About Us</a></li>
+                    </ul>
+                </div>
+                <!-- Social Links -->
+                <div class="col-md-3">
+                    <h3 class="footer-heading">Follow Us</h3>
+                    <ul class="social-icons">
+                        <li><a href="#"><i class="icon ion-logo-facebook"></i></a></li>
+                        <li><a href="#"><i class="icon ion-logo-twitter"></i></a></li>
+                        <li><a href="#"><i class="icon ion-logo-instagram"></i></a></li>
+                    </ul>
+                </div>
+                <!-- Contact Section -->
+                <div class="col-md-3">
+                    <h3 class="footer-heading">Contact Us</h3>
+                    <p><i class="icon ion-location"></i> 456 Business Ave, City, Country</p>
+                    <p><i class="icon ion-phone-portrait"></i> +987 654 3210</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Quote Section -->
+    <div class="footer-middle">
+        <div class="container text-center">
+            <blockquote class="quote">
+                "Quality and passion are the heart of everything we offer."
+            </blockquote>
+        </div>
+    </div>
+   
+</footer>
+
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+
+<script>
+document.getElementById('readMoreButton').addEventListener('click', function() {
+    const descriptionText = document.getElementById('descriptionText');
+    descriptionText.textContent += ' Additional details about the product go here. This can include specifications, usage instructions, and more.';
+    this.textContent = 'Download Document';
+    this.classList.remove('btn-link');
+    this.classList.add('btn-success');
+    this.addEventListener('click', function() {
+        const link = document.createElement('a');
+        link.href = 'assets/Mug.docx'; 
+        link.download = 'assets/Mug.docx';
+        link.click();
+    });
+});
+</script>
+</html>
